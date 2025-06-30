@@ -460,7 +460,7 @@ KMS currently **overspends on low-priority deliveries** and **underutilizes Expr
 -  **Data-driven automation for scalability**
 
 ---
-#  CONCLUSION
+# FINAL CONCLUSION
 The Kultra Mega Stores Inventory Analysis conducted using SQL has unveiled actionable insights that can significantly enhance business performance across logistics, customer management, and sales optimization.
 
 Key findings such as the misalignment between order priority and shipping mode, regional sales distribution, and the identification of high-value customers offer a strategic roadmap for KMS to refine its operations. Furthermore, the discovery of unnecessary shipping expenses on low-priority orders and the identification of repeat item returns across all customer segments highlight opportunities to minimize cost and improve service delivery.
