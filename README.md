@@ -127,7 +127,7 @@ Conversely, the **bottom three regions** in terms of total sales are **Atlantic*
 ### 📊 Total Sales by Region
 
 This chart visualizes the total sales across various regions, helping identify the top-performing areas for Kultra Mega Stores.
-![Total Sales by Region]
+![Total Sales by Region](https://github.com/Akinlade-Opeyemi-Mary/Kultra-Mega-Store-SQL-Analysis/blob/927e8192f324cb4fdb09ba0d5e45af8dfa6bbc26/region%20image.png)
 
 ### **3. What were the total sales of appliances in the Ontario region?**
 This query was designed to calculate the total sales value of appliances within a specific geographic area — Ontario. The objective here is to help the company understand how a particular product sub-category (Appliances) performs in a given region, which is vital for regional marketing strategies, supply chain allocation, and inventory decisions.
