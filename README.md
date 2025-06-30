@@ -147,6 +147,330 @@ This analysis aims to help management understand why certain customers generate 
 
 #### Analysis: Identification of Bottom 10 Customers
 ```sql
+SELECT TOP 10 Customer_Name, SUM(Sales) AS [Total Sales]
+FROM [KMS Sql Case Study]
+GROUP BY Customer_Name
+ORDER BY [Total Sales] ASC;
+```
+#### Analysis:Order Frequency of Bottom 10 Customers
+```sql
+SELECT Customer_Name, COUNT(Order_ID) AS [Order Count]
+FROM [KMS Sql Case Study]
+WHERE Customer_Name IN ('Jeremy Farry','Natalie DeCherney','Nicole Fjeld','Katrina Edelman',
+'Dorothy Dickinson','Christine Kargatis','Eric Murdock','Chris McAfee','Rick Huthwaite','Mark Hamilton')
+GROUP BY Customer_Name
+ORDER BY [Order Count] DESC;
+```
+#### Analysis:Average Sales per Order
+```sql
+SELECT Customer_Name, AVG(Sales) AS [Average Order Values]
+FROM [KMS Sql Case Study]
+WHERE Customer_Name IN ('Jeremy Farry','Natalie DeCherney','Nicole Fjeld','Katrina Edelman',
+'Dorothy Dickinson','Christine Kargatis','Eric Murdock','Chris McAfee','Rick Huthwaite','Mark Hamilton')
+GROUP BY Customer_Name
+ORDER BY [Average Order Values] ASC;
+```
+#### Analysis: Customer Segment Distribution of Bottom 10 Customers
+```sql
+SELECT Customer_Name, Customer_Segment, COUNT(DISTINCT Customer_Name) AS [Customer Count]
+FROM [KMS Sql Case Study]
+WHERE Customer_Name IN ('Jeremy Farry','Natalie DeCherney','Nicole Fjeld','Katrina Edelman',
+'Dorothy Dickinson','Christine Kargatis','Eric Murdock','Chris McAfee','Rick Huthwaite','Mark Hamilton')
+GROUP BY Customer_Name, Customer_Segment
+ORDER BY [Customer Count];
+```
+#### Analysis:Segment Distribution Summary
+```sql
+SELECT Customer_Segment, COUNT(DISTINCT Customer_Name) AS [Customer Count]
+FROM [KMS Sql Case Study]
+WHERE Customer_Name IN ('Jeremy Farry','Natalie DeCherney','Nicole Fjeld','Katrina Edelman',
+'Dorothy Dickinson','Christine Kargatis','Eric Murdock','Chris McAfee','Rick Huthwaite','Mark Hamilton')
+GROUP BY Customer_Segment
+ORDER BY [Customer Count] DESC;
+```
+#### Analysis:Purchase Behaviour Summary
+```sql
+SELECT Customer_Name, AVG(Sales) AS [Average Order Value],
+       SUM(Sales) AS [Total Sales],
+       COUNT(Order_ID) AS [Order Count]
+FROM [KMS Sql Case Study]
+WHERE Customer_Name IN ('Jeremy Farry','Natalie DeCherney','Nicole Fjeld','Katrina Edelman',
+'Dorothy Dickinson','Christine Kargatis','Eric Murdock','Chris McAfee','Rick Huthwaite','Mark Hamilton')
+GROUP BY Customer_Name
+ORDER BY [Average Order Value];
+```
+
+#### Insight:The bottom 10 customers by sales include Jeremy Farry (₦**85.72**), Natalie DeCherney (₦125.90), and Nicole Fjeld (₦**153.03**), among others. Many of them place orders infrequently, and several have only placed 1–2 orders in total.
+
+The majority belong to the Small Business and Corporate segments, with fewer from Home Office and Consumer groups. Their average order values vary significantly, with Mark Hamilton having the highest average of  (₦**225.49**) and Jeremy Farry the lowest at  (₦**42.86**).
+
+### Recommendation: KMS should consider:
+
+ -`Offering targeted promotions or loyalty programs for these customers`.
+
+-`Engaging them with personalized product recommendations`.
+
+-`Investigating any operational or satisfaction issues causing low engagement`.
+
+-`This strategy can help uplift overall sales from underperforming segments without acquiring new customers`.
+
+### **5. Which Shipping Method Incurred the Highest Total Shipping Cost?**
+This analysis aims to determine which shipping method generated the highest total shipping expenses over the period. Understanding this can help KMS optimize logistics and cut unnecessary costs by evaluating the cost-effectiveness of each shipping option.
+
+**SQL Query Used:**
+
+#### Analysis:Most Profitable Customers and What They Buy
+
+```sql
+SELECT Ship_Mode, SUM(Shipping_Cost) AS [Total Shipping Spend]
+FROM [KMS Sql Case Study]
+GROUP BY Ship_Mode;
+```
+
+#### Insight:
+According to the analysis, the Delivery Truck shipping method incurred the highest total shipping cost at  (₦**51,971.94**), followed by Regular Air at  (₦**48,008.19**) and Express Air at  (₦**7,850.91**).
+This suggests that while Delivery Truck may be economical per order, its frequent usage or volume results in the highest cumulative spend. Management may want to evaluate delivery frequency or explore optimizing routes.
+
+### **6. Who Are the Most Valuable Customers, and What Products or Services Do They Typically Purchase?**
+
+This analysis identifies the most profitable customers for Kultra Mega Stores and highlights the product sub-categories from which the company earns the highest profit. This insight helps the business understand its high-value clients and focus marketing or loyalty efforts on sustaining and expanding those relationships.
+
+**SQL Query Used:**
+
+#### Analysis: Products or Services Valuable Customers Purchase
+```sql
+SELECT TOP 5 Customer_Name, Product_Sub_Category, SUM(Profit) AS [Total Profit]
+FROM [KMS Sql Case Study]
+GROUP BY Customer_Name, Product_Sub_Category
+ORDER BY [Total Profit] DESC;
+```
+
+#### Insight:
+According to the analysis, the most valuable customers and their most profitable product sub-categories include:
+
+- **Emily Phan** – *Office Machines* (**₦32,696.49**)  
+- **Grant Carroll** – *Binders and Binder Accessories* (**₦20,316.20**)  
+- **Raymond Book** – *Copiers and Fax* (**₦18,477.07**)  
+- **Alejandro Grove** – *Binders and Binder Accessories* (**₦17,445.23**)  
+- **Clytie Kelty** – *Copiers and Fax* (**₦15,886.93**)
+
+### **7. Which small business customer had the highest sales?**
+This query identifies the top-performing customer within the Small Business segment. Understanding which customer brings in the most sales within this segment allows Kultra Mega Stores (KMS) to tailor strategic decisions such as targeted promotions, loyalty programs, and personalized customer service.
+
+SQL Query Used:
+
+#### Analysis: Small Business Customer with the Highest Sales
+```sql
+SELECT TOP 1 Customer_Name, SUM(Sales) AS [Highest Sales]
+FROM [KMS Sql Case Study]
+WHERE Customer_Segment = 'Small Business'
+GROUP BY Customer_Name
+ORDER BY [Highest Sales] DESC;
+```
+
+#### Insight:
+According to the analysis, **Dennis Kane** is the most valuable customer in the Small Business segment with a total sales value of **₦75,967.59**. This highlights Dennis Kane as a key account within this segment and a potential model for understanding successful customer engagement.
+
+### **8. Which Corporate Customer Placed the Most Number of Orders in 2009–2012?**
+This analysis focuses on identifying the most active corporate customer in terms of the number of orders placed during the period between 2009 and 2012. Understanding which clients consistently generate high order volumes helps inform decisions about client retention strategies, loyalty programs, and service prioritization.
+
+SQL Query Used:
+
+#### Analysis: Corporate Customer with the Most Orders (2009–2012)
+```sql
+SELECT Customer_Name, Customer_Segment, COUNT(Order_ID) AS [Numbers of Orders]
+FROM [KMS Sql Case Study]
+WHERE Customer_Segment = 'Corporate'
+  AND Ship_Date BETWEEN '2009-01-01' AND '2012-12-31'
+GROUP BY Customer_Name, Customer_Segment
+ORDER BY [Numbers of Orders] DESC;
+```
+#### Analysis: Top Corporate Customer with the Most Orders (2009–2012)
+```sql
+SELECT TOP 1 Customer_Name, Customer_Segment, COUNT(Order_ID) AS [Numbers of Orders]
+FROM [KMS Sql Case Study]
+WHERE Customer_Segment = 'Corporate'
+  AND Ship_Date BETWEEN '2009-01-01' AND '2012-12-31'
+GROUP BY Customer_Name, Customer_Segment
+ORDER BY [Numbers of Orders] DESC;
+```
+
+#### Insight:
+According to the analysis, the corporate customer Adam Hart placed the highest number of orders (27 orders) between 2009 and 2012. This indicates a strong and consistent relationship with KMS and shows Adam Hart as a loyal client who likely contributes significantly to recurring revenue.
+
+### **9. Which Consumer Customer Was the Most Profitable One?**
+This analysis seeks to identify the top-performing consumer customer in terms of profit generated. Understanding which individual consumers drive the most profit can help Kultra Mega Stores (KMS) tailor retention strategies and targeted offers to maintain loyalty and encourage repeat business.
+
+SQL Query Used
+
+#### Analysis: Most Profitable Consumer Customer
+```sql
+SELECT TOP 1 Customer_Name, Customer_Segment, SUM(Profit) AS [Total Profit]
+FROM [KMS Sql Case Study]
+WHERE Customer_Segment = 'Consumer'
+GROUP BY Customer_Name, Customer_Segment
+ORDER BY [Total Profit] DESC;
+```
+
+#### Insight:
+According to the analysis, the most profitable consumer customer is **Emily Phan**, from the Consumer segment, with a total profit contribution of **₦34,005.44**. This highlights her importance to the business and suggests that personalized engagement or loyalty initiatives could help sustain her continued patronage.
+
+### **10. Which Customer Returned Items, and What Segment Do They Belong To?**
+This analysis identifies customers who returned items by filtering records with negative profit values. It also shows the customer segments these individuals belong to. Understanding patterns of returns can help Kultra Mega Stores (KMS) investigate product or service issues, assess customer satisfaction, and revise policies to reduce future returns.
+
+SQL Query Used:
+
+#### Analysis:Customers Who Returned Items and Their Segment
+```sql
+SELECT DISTINCT Customer_Name, Customer_Segment
+FROM [KMS Sql Case Study]
+WHERE Profit < 0;
+```
+
+#### Insight:
+
+According to the analysis, numerous customers across all four segments—**Consumer**, **Corporate**, **Home Office**, and **Small Business**—returned items during the period under review. This suggests returns are not limited to a specific customer category and may warrant:
+
+- **Reviewing top returned products.**
+- **Investigating reasons for negative profit** (e.g., high discounts or damaged goods).
+- **Offering better product descriptions, warranties, or quality control checks.**
+
+Due to the large volume of customers involved, a **summarized view or visual chart** (like a donut chart of customer segments with returns) is recommended in the dashboard or final presentation for clearer insight.
+
+### **11. Was Shipping Cost Appropriately Spent Based on Order Priority?**
+
+This analysis evaluates if **Kultra Mega Stores (KMS)** allocated shipping costs effectively by matching shipping methods to order priorities. Since **Delivery Truck** is the most economical but slowest, and **Express Air** is the fastest but most expensive, high-priority orders should ideally favor Express Air, while low-priority ones should use Delivery Truck to optimize costs.
+
+SQL Queries Used:
+
+#### Analysis: Alignment Between Order Priority and Shipping Method
+```sql
+SELECT Order_Priority, Ship_Mode, COUNT(Order_ID) AS [Total Orders]
+FROM [KMS Sql Case Study]
+GROUP BY Order_Priority, Ship_Mode
+ORDER BY [Total Orders] DESC;
+```
+#### Analysis: Average Shipping Cost per Priority
+```sql
+SELECT Order_Priority, 
+       CAST(ROUND(AVG(Shipping_Cost), 3) AS DECIMAL(10,3)) AS [Average Shipping Cost]
+FROM [KMS Sql Case Study]
+GROUP BY Order_Priority
+ORDER BY [Average Shipping Cost] DESC;
+```
+#### Analysis: . Orders by Priority and Shipping Method (with % Distribution)
+```sql
+WITH TotalPerPriority AS (
+    SELECT Order_Priority, COUNT(Order_ID) AS [Total Orders]
+    FROM [KMS Sql Case Study]
+    GROUP BY Order_Priority
+)
+SELECT k.Order_Priority, k.Ship_Mode, COUNT(k.Order_ID) AS [Order Count],
+       CAST(COUNT(k.Order_ID) * 100.0 / tp.[Total Orders] AS DECIMAL(10,2)) AS [Percentage of Order]
+FROM [KMS Sql Case Study] k
+JOIN TotalPerPriority tp 
+  ON k.Order_Priority = tp.Order_Priority
+GROUP BY k.Order_Priority, k.Ship_Mode, tp.[Total Orders]
+ORDER BY k.Order_Priority, [Percentage of Order] DESC;
+```
+
+#### Insight:
+### 📦 Shipping Misalignment Analysis
+
+Despite having clearly defined order priorities (**Critical**, **High**, **Medium**, **Low**, **Not Specified**), **KMS** does not appear to align its shipping mode choices appropriately with the urgency of orders.
+
+#### 🚚 Shipping Distribution by Priority (%)
+
+| Order Priority   | Regular Air (%) | Delivery Truck (%) | Express Air (%) |
+|------------------|------------------|---------------------|------------------|
+| **Critical**      | 73.38%           | 14.18%              | 12.44%           |
+| **High**          | 73.98%           | 14.03%              | 11.99%           |
+| **Medium**        | 75.11%           | 12.57%              | 12.32%           |
+| **Low**           | 74.42%           | 14.53%              | 11.05%           |
+| **Not Specified** | 76.38%           | 12.86%              | 10.77%           |
+
+#### 💸 Average Shipping Cost per Priority
+
+| Order Priority     | Avg. Shipping Cost (₦) |
+|--------------------|------------------------|
+| **Low**            | ₦13.34                 |
+| **Critical**       | ₦13.13                 |
+| **High**           | ₦12.82                 |
+| **Medium**         | ₦12.58                 |
+| **Not Specified**  | ₦12.32                 |
+
+> ✅ **Conclusion:** Low-priority orders are incurring **higher average shipping costs** than even critical ones — a **major operational inefficiency**.
+
+---
+
+##### 🚨 Business Problem:
+
+This suggests a **misalignment between operational cost management and business logic**, leading to:
+
+- 📈 **Increased logistics cost** for non-urgent orders.  
+- 😕 **Potential customer dissatisfaction** for delayed critical deliveries.  
+- 💰 **Missed cost-saving opportunities** on high-volume, low-priority orders.
+
+---
+
+##### Recommendations:
+
+######  1. Redesign the Shipping Logic Flow
+Create a **rule-based system** that matches:
+
+- `Critical & High Priority → Express Air or Regular Air (based on SLA deadlines)`
+- `Medium Priority → Regular Air`
+- `Low & Not Specified → Delivery Truck by default`
+
+######  2. Implement a Shipping Audit Tracker
+- Add a **validation layer** before final shipment to check if:
+  - `Shipping Mode ≠ Order Priority`, flag the order for review.
+- Generate **weekly reports** on "**Priority vs Shipping Mismatch**".
+
+###### 3. Automate Shipping Assignment
+- Use **SQL-based triggers or workflow automation** in your ERP to auto-assign:
+  - **Express Air only for Critical** or time-sensitive deliveries.
+
+######  4. Reallocate Budget & Reduce Wastage
+- Redirect saved shipping costs from **Low-priority** orders to:
+  - Offer **free Express Air upgrades** for **VIP customers**.
+  - Fund **marketing loyalty campaigns** or discounts.
+
+###### 📈 5. Monitor & Measure with KPIs
+Track monthly:
+- ✅ % of **Critical orders delivered via Express Air** *(target: >70%)*
+- ✅ % of **Low-priority orders using Delivery Truck** *(target: >80%)*
+- ✅ **Shipping cost variance vs monthly logistics budget**
+
+---
+
+### 📌 Final Conclusion
+
+KMS currently **overspends on low-priority deliveries** and **underutilizes Express Air for critical orders**. These mismatches raise costs, reduce efficiency, and risk customer trust.
+
+> By **realigning shipping modes to match order urgency**, KMS can unlock:
+- ⚙️ **Smarter logistics**
+- 💵 **Cost optimization**
+- 🚀 **Faster fulfillment**
+- 📊 **Data-driven automation for scalability**
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
