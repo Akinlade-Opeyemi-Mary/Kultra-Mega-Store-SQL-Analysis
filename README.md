@@ -75,7 +75,7 @@ How do discounts affect overall profitability
 -  **Relational Database Concepts** – Understanding normalization, joins, and aggregation.
 -  **Business Intelligence (BI)** Mindset – Applied for interpreting data meaningfully.
 -  **GitHub** – For project documentation and portfolio presentation.
--  **Data Visualization Tools** *(optional)* – For presenting SQL insights using charts and graphs.
+-  **Data Visualization Tools** *(POWER BI)* – For presenting SQL insights using charts and graphs.
 
 # 📊 ANALYSIS
 This section outlines the core business questions explored through SQL and presents data-driven insights derived from Kultra Mega Stores' historical sales and operations data. Each question is followed by a breakdown of the SQL logic used and a brief business interpretation.
@@ -123,6 +123,13 @@ ORDER BY [Total Sales] ASC;
 Based on the analysis, the **top three regions** with the highest total sales are **West** (₦**3,597,549.33**), **Ontario** (₦**3,063,212.55**), and **Prairie** (₦**2,837,304.59**). These regions likely contribute significantly to the company’s revenue due to higher population density, purchasing power, and well-established supply chains.
 
 Conversely, the **bottom three regions** in terms of total sales are **Atlantic** (₦**1,167,627.86**), **Quebec** (₦**1,359,364.33**), and **Northwest Territories** (₦**1,447,390.01**). These low figures may indicate limited customer reach, operational constraints, or lower demand. KMS may consider targeted marketing, local partnerships, or revised distribution strategies to improve performance in these areas.
+
+### 📊 Total Sales by Region
+
+This chart visualizes the total sales across various regions, helping identify the top-performing areas for Kultra Mega Stores.
+
+![Total Sales by Region](images/total_sales_by_region_chart.png)
+
 
 ### **3. What were the total sales of appliances in the Ontario region?**
 This query was designed to calculate the total sales value of appliances within a specific geographic area — Ontario. The objective here is to help the company understand how a particular product sub-category (Appliances) performs in a given region, which is vital for regional marketing strategies, supply chain allocation, and inventory decisions.
