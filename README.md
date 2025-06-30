@@ -42,7 +42,7 @@ How do discounts affect overall profitability
 11. Did the company appropriately spend shipping costs based on order priority?
 # 📂 SOURCES
 
-- **Dataset Origin:** Provided by **Digital Skills Africa / Incubator Hub** as part of the final SQL case study project.
+- **Dataset Origin:** Provided by **Digital Skills Africa / Incubator Hub** as part of the final SQL case study project.https://canvas.instructure.com/files/folder/courses_11955369/DSA%20Capstone%20Project%20Files
 
 - **Primary Table Used:** `KMS SQL Case Study`
 
