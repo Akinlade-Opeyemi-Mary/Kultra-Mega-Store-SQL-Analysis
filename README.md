@@ -211,13 +211,13 @@ The majority belong to the Small Business and Corporate segments, with fewer fro
 
 ### Recommendation: KMS should consider:
 
- -`Offering targeted promotions or loyalty programs for these customers`.
+ - `Offering targeted promotions or loyalty programs for these customers`.
 
--`Engaging them with personalized product recommendations`.
+- `Engaging them with personalized product recommendations`.
 
--`Investigating any operational or satisfaction issues causing low engagement`.
+- `Investigating any operational or satisfaction issues causing low engagement`.
 
--`This strategy can help uplift overall sales from underperforming segments without acquiring new customers`.
+- `This strategy can help uplift overall sales from underperforming segments without acquiring new customers`.
 
 ### **5. Which Shipping Method Incurred the Highest Total Shipping Cost?**
 This analysis aims to determine which shipping method generated the highest total shipping expenses over the period. Understanding this can help KMS optimize logistics and cut unnecessary costs by evaluating the cost-effectiveness of each shipping option.
