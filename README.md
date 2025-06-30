@@ -375,11 +375,11 @@ ORDER BY k.Order_Priority, [Percentage of Order] DESC;
 ```
 
 #### Insight:
-### 📦 Shipping Misalignment Analysis
+### Shipping Misalignment Analysis
 
 Despite having clearly defined order priorities (**Critical**, **High**, **Medium**, **Low**, **Not Specified**), **KMS** does not appear to align its shipping mode choices appropriately with the urgency of orders.
 
-#### 🚚 Shipping Distribution by Priority (%)
+####  Shipping Distribution by Priority (%)
 
 | Order Priority   | Regular Air (%) | Delivery Truck (%) | Express Air (%) |
 |------------------|------------------|---------------------|------------------|
@@ -389,7 +389,7 @@ Despite having clearly defined order priorities (**Critical**, **High**, **Mediu
 | **Low**           | 74.42%           | 14.53%              | 11.05%           |
 | **Not Specified** | 76.38%           | 12.86%              | 10.77%           |
 
-#### 💸 Average Shipping Cost per Priority
+#### Average Shipping Cost per Priority
 
 | Order Priority     | Avg. Shipping Cost (₦) |
 |--------------------|------------------------|
@@ -399,30 +399,30 @@ Despite having clearly defined order priorities (**Critical**, **High**, **Mediu
 | **Medium**         | ₦12.58                 |
 | **Not Specified**  | ₦12.32                 |
 
-> ✅ **Conclusion:** Low-priority orders are incurring **higher average shipping costs** than even critical ones — a **major operational inefficiency**.
+>  **Conclusion:** Low-priority orders are incurring **higher average shipping costs** than even critical ones — a **major operational inefficiency**.
 
 ---
 
-#### 🚨 Business Problem:
+####  Business Problem:
 
 This suggests a **misalignment between operational cost management and business logic**, leading to:
 
-- 📈 **Increased logistics cost** for non-urgent orders.  
-- 😕 **Potential customer dissatisfaction** for delayed critical deliveries.  
-- 💰 **Missed cost-saving opportunities** on high-volume, low-priority orders.
+- **Increased logistics cost** for non-urgent orders.  
+-  **Potential customer dissatisfaction** for delayed critical deliveries.  
+-  **Missed cost-saving opportunities** on high-volume, low-priority orders.
 
 ---
 
 #### Recommendations:
 
-#####  1. Redesign the Shipping Logic Flow
+##### 1. Redesign the Shipping Logic Flow
 Create a **rule-based system** that matches:
 
 - `Critical & High Priority → Express Air or Regular Air (based on SLA deadlines)`
 - `Medium Priority → Regular Air`
 - `Low & Not Specified → Delivery Truck by default`
 
-#####  2. Implement a Shipping Audit Tracker
+##### 2. Implement a Shipping Audit Tracker
 - Add a **validation layer** before final shipment to check if:
   - `Shipping Mode ≠ Order Priority`, flag the order for review.
 - Generate **weekly reports** on "**Priority vs Shipping Mismatch**".
@@ -431,16 +431,16 @@ Create a **rule-based system** that matches:
 - Use **SQL-based triggers or workflow automation** in your ERP to auto-assign:
   - **Express Air only for Critical** or time-sensitive deliveries.
 
-#####  4. Reallocate Budget & Reduce Wastage
+##### 4. Reallocate Budget & Reduce Wastage
 - Redirect saved shipping costs from **Low-priority** orders to:
   - Offer **free Express Air upgrades** for **VIP customers**.
   - Fund **marketing loyalty campaigns** or discounts.
 
-##### 📈 5. Monitor & Measure with KPIs
+##### 5. Monitor & Measure with KPIs
 Track monthly:
-- ✅ % of **Critical orders delivered via Express Air** *(target: >70%)*
-- ✅ % of **Low-priority orders using Delivery Truck** *(target: >80%)*
-- ✅ **Shipping cost variance vs monthly logistics budget**
+- % of **Critical orders delivered via Express Air** *(target: >70%)*
+-  % of **Low-priority orders using Delivery Truck** *(target: >80%)*
+-  **Shipping cost variance vs monthly logistics budget**
 
 ---
 
@@ -449,10 +449,10 @@ Track monthly:
 KMS currently **overspends on low-priority deliveries** and **underutilizes Express Air for critical orders**. These mismatches raise costs, reduce efficiency, and risk customer trust.
 
 > By **realigning shipping modes to match order urgency**, KMS can unlock:
-- ⚙️ **Smarter logistics**
-- 💵 **Cost optimization**
-- 🚀 **Faster fulfillment**
-- 📊 **Data-driven automation for scalability**
+-  **Smarter logistics**
+-  **Cost optimization**
+-  **Faster fulfillment**
+-  **Data-driven automation for scalability**
 
 ---
 
