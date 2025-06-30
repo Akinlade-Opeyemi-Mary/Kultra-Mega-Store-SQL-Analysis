@@ -403,7 +403,7 @@ Despite having clearly defined order priorities (**Critical**, **High**, **Mediu
 
 ---
 
-##### 🚨 Business Problem:
+#### 🚨 Business Problem:
 
 This suggests a **misalignment between operational cost management and business logic**, leading to:
 
@@ -413,30 +413,30 @@ This suggests a **misalignment between operational cost management and business 
 
 ---
 
-##### Recommendations:
+#### Recommendations:
 
-######  1. Redesign the Shipping Logic Flow
+#####  1. Redesign the Shipping Logic Flow
 Create a **rule-based system** that matches:
 
 - `Critical & High Priority → Express Air or Regular Air (based on SLA deadlines)`
 - `Medium Priority → Regular Air`
 - `Low & Not Specified → Delivery Truck by default`
 
-######  2. Implement a Shipping Audit Tracker
+#####  2. Implement a Shipping Audit Tracker
 - Add a **validation layer** before final shipment to check if:
   - `Shipping Mode ≠ Order Priority`, flag the order for review.
 - Generate **weekly reports** on "**Priority vs Shipping Mismatch**".
 
-###### 3. Automate Shipping Assignment
+##### 3. Automate Shipping Assignment
 - Use **SQL-based triggers or workflow automation** in your ERP to auto-assign:
   - **Express Air only for Critical** or time-sensitive deliveries.
 
-######  4. Reallocate Budget & Reduce Wastage
+#####  4. Reallocate Budget & Reduce Wastage
 - Redirect saved shipping costs from **Low-priority** orders to:
   - Offer **free Express Air upgrades** for **VIP customers**.
   - Fund **marketing loyalty campaigns** or discounts.
 
-###### 📈 5. Monitor & Measure with KPIs
+##### 📈 5. Monitor & Measure with KPIs
 Track monthly:
 - ✅ % of **Critical orders delivered via Express Air** *(target: >70%)*
 - ✅ % of **Low-priority orders using Delivery Truck** *(target: >80%)*
@@ -444,7 +444,7 @@ Track monthly:
 
 ---
 
-### 📌 Final Conclusion
+## 📌 Final Conclusion
 
 KMS currently **overspends on low-priority deliveries** and **underutilizes Express Air for critical orders**. These mismatches raise costs, reduce efficiency, and risk customer trust.
 
