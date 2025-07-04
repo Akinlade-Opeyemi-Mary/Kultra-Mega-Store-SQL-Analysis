@@ -251,6 +251,16 @@ FROM [KMS Sql Case Study]
 GROUP BY Customer_Name, Product_Sub_Category
 ORDER BY [Total Profit] DESC;
 ```
+### 🧾 Top 5 Customers by Profit and Sub-Category
+
+| Customer Name     | Product Sub-Category             | Total Profit ($) |
+|-------------------|----------------------------------|------------------|
+| Emily Phan        | Office Machines                  | 32,696.49        |
+| Grant Carroll     | Binders and Binder Accessories   | 20,316.20        |
+| Raymond Book      | Copiers and Fax                  | 18,477.07        |
+| Alejandro Grove   | Binders and Binder Accessories   | 17,445.23        |
+| Clytie Kelty      | Copiers and Fax                  | 15,886.93        |
+
 
 #### Insight:
 According to the analysis, the most valuable customers and their most profitable product sub-categories include:
