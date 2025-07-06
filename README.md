@@ -496,7 +496,7 @@ This case study reflects how structured SQL logic can uncover inefficiencies, so
 
 #### 👤 Author
 Akinlade Opeyemi Mary
-[LinkedIn Profile](*Akinlade Opeyemi Mary**) 
+[LinkedIn Profile](Akinlade Opeyemi Mary) 
 Email Adress:akinladeopeyemi36@gmail.com
 
 
