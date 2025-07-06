@@ -494,8 +494,9 @@ This project not only showcases SQL capabilities in solving real-world problems,
 📊 **Data isn't just for analysis — it's a decision-making engine.**
 This case study reflects how structured SQL logic can uncover inefficiencies, solve core business issues, and shape intelligent strategy in a retail environment.
 
-
-
+👤 Author
+Akinlade Opeyemi Mary
+[LinkedIn Profile](#Akinlade Opeyemi Mary) Email Adress: akinladeopeyemi36@gmail.com
 
 
 
