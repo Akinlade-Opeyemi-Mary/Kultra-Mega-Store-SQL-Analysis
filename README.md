@@ -271,6 +271,12 @@ According to the analysis, the most valuable customers and their most profitable
 - **Alejandro Grove** – *Binders and Binder Accessories* (**₦17,445.23**)  
 - **Clytie Kelty** – *Copiers and Fax* (**₦15,886.93**)
 
+### 📊 Total Sales by Region
+
+This chart visualizes the total sales across various regions, helping identify the top-performing areas for Kultra Mega Stores.
+
+![Alt text](https://github.com/Akinlade-Opeyemi-Mary/Kultra-Mega-Store-SQL-Analysis/blob/5a4eac6c75d8c054e8490c717158fcb1a35e5a45/total_sales_by_region_chart.png)
+
 ### **7. Which small business customer had the highest sales?**
 This query identifies the top-performing customer within the Small Business segment. Understanding which customer brings in the most sales within this segment allows Kultra Mega Stores (KMS) to tailor strategic decisions such as targeted promotions, loyalty programs, and personalized customer service.
 
