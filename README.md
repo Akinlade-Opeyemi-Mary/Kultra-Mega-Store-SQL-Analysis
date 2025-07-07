@@ -422,6 +422,12 @@ Despite having clearly defined order priorities (**Critical**, **High**, **Mediu
 | **Medium**         | ₦12.58                 |
 | **Not Specified**  | ₦12.32                 |
 
+### 📊 Total Shipping Cost by Order Priority and Ship Mode
+
+This chart helps visualize about misalignment of shipping methods and priorities for Kultra Mega Stores.
+
+![Alt text](https://github.com/Akinlade-Opeyemi-Mary/Kultra-Mega-Store-SQL-Analysis/blob/78818af4931e960634b4de43a7090770025608d0/shipping%20chart.JPG)
+
 >  **Conclusion:** Low-priority orders are incurring **higher average shipping costs** than even critical ones — a **major operational inefficiency**.
 
 ---
